@@ -27,6 +27,8 @@ import 'package:extra_staff/views/v2/home_v.dart';
 import 'package:flutter/gestures.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 
+import 'views/legal_agreements/registration_complete_v.dart';
+
 class MyCustomScrollBehavior extends MaterialScrollBehavior {
   // Override behavior methods and getters like dragDevices
   @override
@@ -86,7 +88,7 @@ class ExtraStaff extends StatelessWidget {
               scrollBehavior: MyCustomScrollBehavior(),
               theme: theme,
               darkTheme: darkTheme,
-              // home: V2HomeView(),
+              home: RegistrationComplete(),
               // home: !isWebApp
               //     ? SplashPage()
               //     : ((localStorage?.getString('passcode') ?? '').isNotEmpty
@@ -110,18 +112,18 @@ class ExtraStaff extends StatelessWidget {
                 }
               },
               initialRoute: '/',
-              routes: {
-                '/': (context) => V2HomeView(),
-                '/V2HomeView': (context) => V2HomeView(),
-                '/V2HelpView': (context) => V2HelpView(),
-                '/V2ProfileView': (context) => V2ProfileView(),
-                '/V2ProfileValidateAccountView': (context) =>
-                    V2ProfileValidateAccountView(),
-                '/V2ProfilePaymentsView': (context) => V2ProfilePaymentsView(),
-                '/V2ProfilePaymentsPayeHistoryView': (context) =>
-                    V2ProfilePaymentsPayeHistoryView(),
-                '/V2WorkView': (context) => V2WorkView(),
-              },
+              // routes: {
+              //   '/': (context) => V2HomeView(),
+              //   '/V2HomeView': (context) => V2HomeView(),
+              //   '/V2HelpView': (context) => V2HelpView(),
+              //   '/V2ProfileView': (context) => V2ProfileView(),
+              //   '/V2ProfileValidateAccountView': (context) =>
+              //       V2ProfileValidateAccountView(),
+              //   '/V2ProfilePaymentsView': (context) => V2ProfilePaymentsView(),
+              //   '/V2ProfilePaymentsPayeHistoryView': (context) =>
+              //       V2ProfilePaymentsPayeHistoryView(),
+              //   '/V2WorkView': (context) => V2WorkView(),
+              // },
             ),
           ),
         ),
