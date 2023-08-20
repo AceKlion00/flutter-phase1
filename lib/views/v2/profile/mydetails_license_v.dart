@@ -1,5 +1,5 @@
 import 'package:extra_staff/utils/ab.dart';
-import 'package:extra_staff/utils/constants.dart';
+import 'package:extra_staff/views/v2/profile/icences_upload_v.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,11 +32,21 @@ class _V2ProfileMyDetailsViewState extends State<V2ProfileLicenseView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 24),
-            Text(
-              'Profile/My Details/License',
-              style: MyFonts.regular(20, color: _myThemeColors.primary),
-              textAlign: TextAlign.center,
-            ),
+            abV2PrimaryButton('Driving License Front',
+                onTap: () => {Get.to(() => V2ProfileLicencesUploadView())},
+                fullWidth: true),
+            SizedBox(height: 20),
+            abV2PrimaryButton('Driving License Back',
+                onTap: () => {Get.to(() => V2ProfileLicencesUploadView())},
+                fullWidth: true),
+            SizedBox(height: 20),
+            abV2PrimaryButton('Driver Qualifiation Card',
+                onTap: () => {Get.to(() => V2ProfileLicencesUploadView())},
+                fullWidth: true),
+            SizedBox(height: 20),
+            abV2PrimaryButton('Tacho card',
+                onTap: () => {Get.to(() => V2ProfileLicencesUploadView())},
+                fullWidth: true),
           ],
         ));
   }

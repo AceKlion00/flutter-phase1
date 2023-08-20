@@ -1,6 +1,7 @@
 import 'package:extra_staff/utils/ab.dart';
 import 'package:extra_staff/utils/constants.dart';
 import 'package:extra_staff/views/v2/profile/mydetails_NI_v.dart';
+import 'package:extra_staff/views/v2/profile/mydetails_address_v.dart';
 import 'package:extra_staff/views/v2/profile/mydetails_details_v.dart';
 import 'package:extra_staff/views/v2/profile/mydetails_license_v.dart';
 import 'package:extra_staff/views/v2/profile/mydetails_rtw_v.dart';
@@ -41,8 +42,8 @@ class _V2ProfileMyDetailsViewState
                 onTap: () => {Get.to(() => V2ProfileRTWView())},
                 fullWidth: true),
             SizedBox(height: 20),
-            abV2PrimaryButton('License',
-                onTap: () => {Get.to(() => V2ProfileLicenseView())},
+            abV2PrimaryButton('ADDRESS',
+                onTap: () => {Get.to(() => V2ProfileMyDetailsAddressView())},
                 fullWidth: true),
             SizedBox(height: 20),
             abV2PrimaryButton('NI',
