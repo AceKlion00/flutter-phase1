@@ -1,3 +1,4 @@
+import 'package:accordion/accordion.dart';
 import 'package:extra_staff/utils/ab.dart';
 import 'package:extra_staff/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -15,36 +16,82 @@ class V2ProfileHolidayAvailabilityView extends StatefulWidget {
 
 class _V2ProfileHolidayAvailabilityViewState
     extends State<V2ProfileHolidayAvailabilityView> {
-  MyThemeColors get _myThemeColors =>
-      Theme.of(context).extension<MyThemeColors>()!;
   bool _isLoading = false;
   int _selectedIndex = 2;
+  bool value = true;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
-    abV2GotoBottomNavigation(index, 2);
+    // abV2GotoBottomNavigation(index, 2);
   }
 
   Widget getContent() {
+    final List<String> yearList = [
+      "Update Availability",
+      "Request time off",
+    ];
+
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 24),
-            Text(
-              'Profile/Holiday Availability',
-              style: MyFonts.regular(20, color: _myThemeColors.primary),
-              textAlign: TextAlign.center,
-            ),
-          ],
-        ));
+      padding: EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(height: 24),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: yearList.length,
+            itemBuilder: (context, index) {
+              String year = yearList[index];
+              return Column(
+                children: [
+                  Text(
+                    year,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  ),
+                  CheckboxListTile(
+                    title: Text('Monday'),
+                    controlAffinity: ListTileControlAffinity.leading,
+                    value: false, // Replace with the appropriate value
+                    onChanged: (bool? newValue) {
+                      setState(() {
+                        if (newValue != null) {
+                          value = newValue;
+                        }
+                      });
+                    },
+                  ),
+                  CheckboxListTile(
+                    title: Text('Tuesday'),
+                    controlAffinity: ListTileControlAffinity.leading,
+                    value: true, // Replace with the appropriate value
+                    onChanged: (bool? newValue) {
+                      setState(() {
+                        if (newValue != null) {
+                          value = newValue;
+                        }
+                      });
+                    },
+                  ),
+                  // Add more CheckboxListTile widgets for other days of the week
+                ],
+              );
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   PreferredSizeWidget getAppBar() {
-    return abV2AppBar(context, 'Holiday Availability');
+    // abV2AppBar(context, 'Holiday Availability');
+    return AppBar(
+      title: Text('Holiday Availability'),
+    );
   }
 
   @override
